@@ -1,5 +1,6 @@
 import uuid
 from datetime import datetime
+import json
 
 
 class BaseModel:
@@ -30,3 +31,18 @@ class BaseModel:
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
+
+    def save_to_file(self):
+        """
+        Serialize the object to a JSON string and save it to a file.
+        """
+        with open(f"{self.__class__.__name__}_{self.id}.json", 'w') as file:
+            json.dump(self.to_dict(), file)
+
+    def load_from_file(self, file_path):
+        """
+        Load the object from a file and deserialize it.
+        """
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            return self.__class__(**data)
