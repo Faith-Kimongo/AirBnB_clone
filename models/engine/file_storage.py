@@ -2,7 +2,7 @@
 
 """
 get json model
-get path module to check for files existence
+get path module to check for files existance
 """
 
 import json
@@ -16,11 +16,11 @@ from models.user import User
 from os import path
 
 
-class FileStorage:
+class FileStorage():
     """
     file storage class
-    adds persistence storage feature to the project
-    saves data using JSON format
+    adds persistance storage feature to the project
+    saves data using json format
     """
     __file_path = 'file.json'
     __objects = {}
@@ -54,13 +54,13 @@ class FileStorage:
     def reload(self):
         """
         Deserializes the JSON file to
-        __objects only if the JSON file (__file_path) exists
-        Otherwise, do nothing.
+        __objects only if the JSON file (__file_path) existis
+        Otherwise do nothing.
         """
         if path.exists(self.__file_path):
+            """ open the file and read the data """
             with open(self.__file_path, mode='r', encoding='UTF-8') as my_file:
                 my_dict = json.load(my_file)
+                from models.base_model import BaseModel
                 for key, value in my_dict.items():
-                    class_name = value['__class__']
-                    obj = globals()[class_name](**value)
-                    self.__objects[key] = obj
+                    self.__objects[key] = eval(value['__class__'])(**value)

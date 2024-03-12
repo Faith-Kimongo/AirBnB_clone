@@ -60,30 +60,37 @@ class TestFileStorage(unittest.TestCase):
             mock_dump.assert_called_once()
 
     def test_reload(self):
-        # Create and save an instance
+        """
+        Create an instance and save it
+        """
         instance = BaseModel()
         instance.save()
 
-        # Verify that the instance is stored in __objects
-        key = f"{instance.__class__.__name__}.{instance.id}"
-        self.assertIn(key, self.storage.all())
+        """
+        Verify that the instance is stored in __objects
+        """
+        self.assertIn(instance.__class__.__name__ + "." +
+                      instance.id, self.storage.all())
 
-        # Manually modify the file to remove the instance
+        """
+        Manually modify the file to remove the instance
+        """
         self.storage.__objects = {}
         self.storage.save()
 
-        # Reload the storage and verify that the instance is reloaded
+        """
+        Reload the storage and verify that the instance is reloaded
+        """
         self.storage.reload()
-        self.assertIn(key, self.storage.all())
-
-        # Test if the reload method loads objects from JSON file.
+        self.assertIn(instance.__class__.__name__ + "."
+                      + instance.id, self.storage.all())
+        """
+        Test if the reload method loads objects from JSON file.
+        """
         prev_objs = self.storage.all()
         self.storage.reload()
         reloaded_objs = self.storage.all()
-        self.assertEqual(len(prev_objs), len(reloaded_objs))
-        for key in prev_objs:
-            self.assertEqual(prev_objs[key].to_dict(),
-                             reloaded_objs[key].to_dict())
+        self.assertEqual(prev_objs, reloaded_objs)
 
 
 if __name__ == '__main__':
