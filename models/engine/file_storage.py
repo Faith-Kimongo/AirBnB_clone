@@ -58,9 +58,9 @@ class FileStorage:
         Otherwise, do nothing.
         """
         if path.exists(self.__file_path):
-            """ open the file and read the data """
             with open(self.__file_path, mode='r', encoding='UTF-8') as my_file:
                 my_dict = json.load(my_file)
-                from models.base_model import BaseModel
                 for key, value in my_dict.items():
-                    self.__objects[key] = eval(value['__class__'])(**value)
+                    class_name = value['__class__']
+                    obj = globals()[class_name](**value)
+                    self.__objects[key] = obj
