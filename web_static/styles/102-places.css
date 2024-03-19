@@ -1,0 +1,200 @@
+.container .places {
+    width: 100%;
+    font-size: 30px;
+    margin-bottom: 100px;
+  }
+  
+  .container .places ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .container .places article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px #ff5a5f solid;
+    border-radius: 4px;
+  }
+  .container .places article h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .container .places article .price_by_night {
+    color: #ff5a5f;
+    border: 4px #ff5a5f solid;
+    border-radius: 50%;
+    min-width: 60px;
+    width: 60px;
+    height: 60px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: -50px 0 5px 80%;
+  }
+  .container .places article .information {
+    height: 80px;
+    border-top: 1px #dddddd solid;
+    border-bottom: 1px #dddddd solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .container .places article .information div {
+    padding: 5px;
+    position: relative;
+    width: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .container .places article .information .max_guest {
+    background-image: url(../images/icon_group.png);
+  }
+  .container .places article .information .number_rooms {
+    background-image: url(../images/icon_bed.png);
+  }
+  .container .places article .information .number_bathrooms {
+    background-image: url(../images/icon_bath.png);
+  }
+  .container .places article .information div span {
+    position: absolute;
+    font-size: 10px;
+    top: 60px;
+    left: 30%;
+  }
+  .container .places article .user {
+    margin-top: 10px;
+    font-size: medium;
+  }
+  .container .places article .description {
+    font-size: small;
+  }
+  .container .places article .amenities {
+    margin-top: 40px;
+  }
+  .container .places article .amenities h2 {
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px #dddddd solid;
+  }
+  .container .places article .amenities ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .places article .amenities li {
+    margin-bottom: 5px;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+  }
+  .container .places article .amenities li.icon_pet {
+    background-image: url(../images/icon_pets.png);
+  }
+  .container .places article .amenities li.icon_tv {
+    background-image: url(../images/icon_tv.png);
+  }
+  .container .places article .amenities li.icon_wifi {
+    background-image: url(../images/icon_wifi.png);
+  }
+  .container .places article .amenities li span {
+    font-size: 15px;
+    margin-left: 40px;
+  }
+  .container .places article .reviews {
+    margin-top: 40px;
+  }
+  .container .places article .reviews h2 {
+    font-size: 16px;
+    text-align: left;
+    border-bottom: 1px #dddddd solid;
+  }
+  .container .places article .reviews ul {
+    list-style: none;
+  }
+  .container .places article .reviews h3 {
+    font-size: 14px;
+  }
+  .container .places article .reviews p {
+    font-size: 12px;
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .container .places h1 {
+      text-align: center;
+    }
+    /* .container .places {
+      width: 70%;
+    } */
+    .container .places ul article {
+      width: auto;
+    }
+    .container .places article .information {
+      height: 100px;
+    }
+    .container .places article .information div span {
+      font-size: 15px;
+    }
+    .container .places article .information div {
+      margin-top: 5px;
+      background-position: top;
+      text-wrap: nowrap;
+    }
+    .container .places article .user span,
+    .container .places article .amenities h3 {
+      font-size: 14px;
+    }
+    .container .places article .description p,
+    .container .places article .reviews p {
+      font-size: 16px;
+    }
+    .container .places article .amenities li span {
+      font-size: 16px;
+    }
+    .container .places article .amenities h2,
+    .container .places article .reviews h2 {
+      font-size: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 760px) {
+    .container .places h1 {
+      text-align: center;
+    }
+  
+    .container .places h1 {
+      text-align: center;
+    }
+  
+    .container .places article .information {
+      height: 100px;
+    }
+    .container .places article .information div span {
+      font-size: 15px;
+    }
+    .container .places article .information div span {
+      font-size: 17px;
+    }
+    .container .places article .information div {
+      margin-top: 10px;
+      background-position: top;
+      text-wrap: nowrap;
+    }
+    .container .places article .user span,
+    .container .places article .amenities h3 {
+      font-size: 16px;
+    }
+    .container .places article .description p,
+    .container .places article .reviews p {
+      font-size: 16px;
+    }
+    .container .places article .amenities li span {
+      font-size: 18px;
+    }
+    .container .places article .amenities h2,
+    .container .places article .reviews h2 {
+      font-size: 22px;
+    }
+  }
