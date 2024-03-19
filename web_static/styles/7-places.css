@@ -1,0 +1,21 @@
+.container .places {
+    width: 100%;
+    font-size: 30px;
+  }
+  
+  .container .places ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .container .places article {
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px #ff5a5f solid;
+    border-radius: 4px;
+  }
+  .container .places article h2 {
+    font-size: 30px;
+    text-align: center;
+  }
